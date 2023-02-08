@@ -60,5 +60,30 @@ describe("gameBoard.js", ()=>{
         board.receiveAttack(10);
         expect(board.gameEnd()).toStrictEqual(true)
     });
-    
+
+    test("cheking ship horizontol border", ()=>{
+        board.shipsPlacement([18,19,20]);
+        expect(board.hasShipArray).toStrictEqual([])
+    });
+
+    test("cheking ship horizontol border", ()=>{
+        board.shipsPlacement([76,77,78,79]);
+        expect(board.hasShipArray).toStrictEqual([76,77,78,79])
+    });
+
+    test("cheking ship vertical border", ()=>{
+        board.shipsPlacement([85,95,105]);
+        expect(board.hasShipArray).toStrictEqual([])
+    });
+
+    test("cheking ship vertical border", ()=>{
+        board.shipsPlacement([95,85,75,65]);
+        expect(board.hasShipArray).toStrictEqual([65,75,85,95])
+    });
+
+    test("no overlapping ships", ()=>{
+        board.shipsPlacement([12,13]);
+        board.shipsPlacement([12,13,14])
+        expect(board.hasShipArray).toStrictEqual([12,13]);
+    });
 });
