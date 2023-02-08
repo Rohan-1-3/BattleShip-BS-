@@ -5,27 +5,27 @@ describe("ship.js", ()=>{
     let carrier;
     let patrolBoat;
     beforeEach(()=>{
-        carrier = new Ships("carrier", 5, 1);
-        patrolBoat = new Ships("patrolboat", 2, 2)
+        carrier = new Ships("carrier", 5, 1, [0,1,2,3,4]);
+        patrolBoat = new Ships("patrolboat", 2, 2, [10,11])
     })
     test("testing hit function return", ()=>{
-        carrier.hit();
+        carrier.hit(0);
         expect(carrier.hits).toBe(1);
     });
     test("testing multiple hit function return", ()=>{
-        carrier.hit();
-        carrier.hit();
-        carrier.hit();
+        carrier.hit(1);
+        carrier.hit(2);
+        carrier.hit(3);
         expect(carrier.hits).toBe(3);
     });
     test("sinking ship", ()=>{
-        patrolBoat.hit();
-        patrolBoat.hit();
+        patrolBoat.hit(10);
+        patrolBoat.hit(11);
         expect(patrolBoat.hasSunken).toBe(true);
     });
     test("sinking ship reduces count", ()=>{
-        patrolBoat.hit();
-        patrolBoat.hit();
+        patrolBoat.hit(10);
+        patrolBoat.hit(11);
         expect(patrolBoat.count).toBe(1);
     });
 });
