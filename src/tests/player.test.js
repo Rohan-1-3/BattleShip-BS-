@@ -1,11 +1,6 @@
 /* eslint-disable no-undef */
-import GameBoard from "../modules/gameBoard";
 import Player from "../modules/player";
 import Ships from "../modules/ship";
-
-
-
-
 
 describe("player.js", ()=>{
     let player;
@@ -73,10 +68,10 @@ describe("player.js", ()=>{
         let i = 100;
         const randomNumber = player.board.boardPositionArray[Math.floor(Math.random() * i)];
         i--;
-        if(player.board.receiveAttack(3)){
-            carrierPlayer.hit(3);
+        if(player.board.receiveAttack(randomNumber)){
+            carrierPlayer.hit(randomNumber);
         }
-        expect(player.board.receiveAttack(3)).toBe("out of the box")
+        expect(player.board.receiveAttack(randomNumber)).toBe("out of the box")
     })
 
     test("name of player", ()=>{
