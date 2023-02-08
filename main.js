@@ -1,0 +1,1 @@
+(()=>{"use strict";!function(){function e(e,t=10,r=10){e.style.setProperty("--grid-rows",t),e.style.setProperty("--grid-cols",r);for(let o=0;o<t*r;o+=1){const t=document.createElement("div");e.appendChild(t),t.classList.add("grid-item")}}const t=document.querySelector(".player-1"),r=document.querySelector(".player-2");e(t),e(r)}()})();

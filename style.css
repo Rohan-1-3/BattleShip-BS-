@@ -1,0 +1,18 @@
+main{
+    display: flex;
+    justify-content: space-around;
+}
+
+.player-1, .player-2{
+    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    border: 5px solid black;
+    
+}
+
+.grid-item {
+    border: 1px solid black;
+    padding: 25px;
+    background-color: white;
+}
