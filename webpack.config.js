@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "main.js",
-    devtool: "inline-source-map",
+    // devtool: "inline-source-map",
     path: path.resolve(__dirname, "project"),
   },
 };
