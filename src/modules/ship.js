@@ -8,13 +8,13 @@ export default class Ships{
         this.hasSunken = false;
     }
 
-    hit(position){
+    hit(position){// hits the position and removes the position from the array
         this.position.splice(this.position.indexOf(position),1);
         this.hits++;
         this.isSunk(this.hits);
     }
 
-    isSunk(){
+    isSunk(){// once all hit it sinks
         if(this.position.length === 0) {
             this.hasSunken = true;
             this.count--;
