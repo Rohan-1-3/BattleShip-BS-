@@ -40,4 +40,25 @@ describe("gameBoard.js", ()=>{
         board.receiveAttack(13); 
         expect(board.gameEnd()).toBe(true);
     });
+
+    test("placing ship horizontol", ()=>{
+        board.shipsPlacement([1,2,3,4,5]);
+        expect(board.hasShipArray).toStrictEqual([1,2,3,4,5])
+    });
+    test("placing ship vertical", ()=>{
+        board.shipsPlacement([0,10,20]);
+        expect(board.hasShipArray).toStrictEqual([0,10,20])
+    });
+    test("placing ship horizontol", ()=>{
+        board.shipsPlacement([1,2,3,4,6]);
+        expect(board.hasShipArray).toStrictEqual([])
+    });
+    test("placing ship vertical and sinking it", ()=>{
+        board.shipsPlacement([0,10,20]);
+        board.receiveAttack(0);
+        board.receiveAttack(20);
+        board.receiveAttack(10);
+        expect(board.gameEnd()).toStrictEqual(true)
+    });
+    
 });

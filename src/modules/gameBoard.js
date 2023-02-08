@@ -31,6 +31,15 @@ class GameBoard{
         return !!(this.hasShipArray.length === 0);
     }
 
+    shipsPlacement(shipsArr){
+        const shortedShipsArr = shipsArr.sort((a, b) =>a - b);
+        for(let i = 0; i < shortedShipsArr.length-1;i++){
+            if(!this.boardPositionArray.includes(shortedShipsArr[i])) return false;
+            if(!((shortedShipsArr[i+1] - shortedShipsArr[i]) === 1 
+            || (shortedShipsArr[i+1] - shortedShipsArr[i]) === 10)) return false;
+        }
+        this.hasShipArray.push(...shortedShipsArr);
+    }
 }
 
 export default GameBoard
