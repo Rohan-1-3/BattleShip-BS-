@@ -43,15 +43,17 @@ class GameBoard{
             if(!this.boardPositionArray.includes(shortedShipsArr[i])) return false;
             // no overlapping of ships
             if(this.hasShipArray.includes(shipsArr[i])) return false;
+            if(this.hasShipArray.includes(shipsArr[shortedShipsArr.length-1])) return false;
             // placement in random order
             if(!((shortedShipsArr[i+1] - shortedShipsArr[i]) === 1 
             || (shortedShipsArr[i+1] - shortedShipsArr[i]) === 10)) return false;
             // placement crosses the vertical and horizontol border
             if(borderHorizontal.includes(shortedShipsArr[i]) 
             || borderVertical.includes(shortedShipsArr[i])){
+                
                 if(shipsArr.every(elem => borderHorizontal.includes(elem) 
                 || borderVertical.includes(elem))) break;
-                if(!(i === shortedShipsArr.length || i === 0)) return false;
+                if(!(i === shortedShipsArr.length && i === 0)) return false;
             }
         }
         // adds ship to fresh location

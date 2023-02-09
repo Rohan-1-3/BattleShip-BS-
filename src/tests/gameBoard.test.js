@@ -86,4 +86,8 @@ describe("gameBoard.js", ()=>{
         board.shipsPlacement([12,13,14])
         expect(board.hasShipArray).toStrictEqual([12,13]);
     });
+    test("no overlapping ships", ()=>{
+        board.shipsPlacement([94,95,95]);
+        expect(board.shipsPlacement([93,94])).toStrictEqual(false);
+    });
 });
