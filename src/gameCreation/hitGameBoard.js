@@ -18,7 +18,7 @@ export default function hitBoard(){
     const shotsArrayComp = [];
     const playerOne = document.querySelector(".player-1");
     const playerTwo = document.querySelector(".player-2");
-    playerOne.classList.add("turn"); // disbaling DOM for opposite player
+  
     
 
     const computerPlay = ()=>{// random computer plays

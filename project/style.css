@@ -22,3 +22,7 @@ main{
     transition: opacity 1s ease;
     opacity: .5;
 }
+
+.green{
+    background-color: green;
+}
