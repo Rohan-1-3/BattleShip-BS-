@@ -41,6 +41,8 @@ class GameBoard{
             if(shipsArr[i]<0) return false;
     
             if(!this.boardPositionArray.includes(shortedShipsArr[i])) return false;
+            // no overlapping of ships
+            if(this.hasShipArray.includes(shipsArr[i])) return false;
             // placement in random order
             if(!((shortedShipsArr[i+1] - shortedShipsArr[i]) === 1 
             || (shortedShipsArr[i+1] - shortedShipsArr[i]) === 10)) return false;
@@ -51,8 +53,6 @@ class GameBoard{
                 || borderVertical.includes(elem))) break;
                 if(!(i === shortedShipsArr.length || i === 0)) return false;
             }
-            // no overlapping of ships
-            if(this.hasShipArray.includes(shipsArr[i])) return false;
         }
         // adds ship to fresh location
         this.hasShipArray.push(...shortedShipsArr);
