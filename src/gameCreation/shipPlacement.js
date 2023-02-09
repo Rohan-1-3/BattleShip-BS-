@@ -21,6 +21,13 @@ export default function ships(){
     }
 
     const playerShips = ()=>{// creates ships for player at random places
+        console.log(player);
+        player.ships = [];
+        player.board.hasShipArray = [];
+        const gridItemPlayer = document.querySelectorAll(".player-1 .grid-item");
+        gridItemPlayer.forEach((grid)=>{
+            grid.style.backgroundColor = "white";
+        })
         let j = 5;
         for(let i = 0;i < 5;i++){
             const playerShip = new Ships(`ship${i}`,j, getRandomLegalPosition(j, player));
@@ -35,12 +42,12 @@ export default function ships(){
             player.board.shipsPlacement(player.ships[i].position);// filling it with proper placements
         }
 
-        const gridItemPlayer = document.querySelectorAll(".player-1 .grid-item");
         gridItemPlayer.forEach((grid)=>{// showing the player's ship location
         if(player.board.hasShipArray.includes(parseInt(grid.id, 10))){
             grid.style.backgroundColor = "green";
         }
-    })
+    });
+    console.log(player);
     }
 
     const computerShips = ()=>{
@@ -58,7 +65,8 @@ export default function ships(){
         }
     }
     // creating ships randomly
-    playerShips();
+    const randomise = document.querySelector(".randomPlayer");
+    randomise.addEventListener("click", playerShips)
     computerShips();
 }
 
