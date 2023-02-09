@@ -16,3 +16,9 @@ main{
     padding: 25px;
     background-color: white;
 }
+
+.turn{
+    pointer-events: none;
+    transition: opacity 1s ease;
+    opacity: .5;
+}
