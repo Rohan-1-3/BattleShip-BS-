@@ -12,7 +12,7 @@ export default function gameBoard(){
     
     const playerOne = document.querySelector(".player-1");
     const playerTwo = document.querySelector(".player-2");
-    
+    // creates 10x10 box for both players
     makeRows(playerOne);
     makeRows(playerTwo);
 }
