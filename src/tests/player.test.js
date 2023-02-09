@@ -11,12 +11,12 @@ describe("player.js", ()=>{
     beforeEach(()=>{
         player = new Player("player");
         computer = new Player("computer");
-        carrierPlayer = new Ships("carrier", 5,1,[0,1,2,3,4]);
+        carrierPlayer = new Ships("carrier", 5,[0,1,2,3,4]);
         player.ships.push(carrierPlayer)
-        destroyerPlayer = new Ships("destroyer", 3, 2,[4,5,6]);
+        destroyerPlayer = new Ships("destroyer", 3, [4,5,6]);
         player.ships.push(destroyerPlayer)
 
-        carrierComp = new Ships("destroyer", 3, 2,[4,5]);
+        carrierComp = new Ships("destroyer", 3, [4,5]);
     })
     test("no overlaps", ()=>{
         player.board.shipsPlacement(carrierPlayer.position);

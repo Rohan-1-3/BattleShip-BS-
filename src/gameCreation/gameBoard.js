@@ -2,10 +2,11 @@ export default function gameBoard(){
     function makeRows(div,rows = 10, cols=10) {
         div.style.setProperty("--grid-rows", rows);
         div.style.setProperty("--grid-cols", cols);
-        for (let c = 0; c < (rows * cols); c+=1) {
+        for (let c = 0; c < (rows * cols); c++) {
           const cell = document.createElement("div");
           div.appendChild(cell);
           cell.classList.add("grid-item");
+          cell.id = c;
         };
     };
     

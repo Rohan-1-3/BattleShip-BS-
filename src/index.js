@@ -1,3 +1,3 @@
-import gameBoard from "./gameCreation/gameBoard";
+import ships  from "./gameCreation/shipPlacement";
 
-gameBoard();
+ships()

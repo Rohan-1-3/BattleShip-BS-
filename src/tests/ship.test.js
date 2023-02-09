@@ -5,8 +5,8 @@ describe("ship.js", ()=>{
     let carrier;
     let patrolBoat;
     beforeEach(()=>{
-        carrier = new Ships("carrier", 5, 1, [0,1,2,3,4]);
-        patrolBoat = new Ships("patrolboat", 2, 2, [10,11])
+        carrier = new Ships("carrier", 5, [0,1,2,3,4]);
+        patrolBoat = new Ships("patrolboat", 2, [10,11])
     })
     test("testing hit function return", ()=>{
         carrier.hit(0);
@@ -22,10 +22,5 @@ describe("ship.js", ()=>{
         patrolBoat.hit(10);
         patrolBoat.hit(11);
         expect(patrolBoat.hasSunken).toBe(true);
-    });
-    test("sinking ship reduces count", ()=>{
-        patrolBoat.hit(10);
-        patrolBoat.hit(11);
-        expect(patrolBoat.count).toBe(1);
     });
 });

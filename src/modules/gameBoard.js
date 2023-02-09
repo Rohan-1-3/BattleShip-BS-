@@ -47,6 +47,8 @@ class GameBoard{
             // placement crosses the vertical and horizontol border
             if(borderHorizontal.includes(shortedShipsArr[i]) 
             || borderVertical.includes(shortedShipsArr[i])){
+                if(shipsArr.every(elem => borderHorizontal.includes(elem) 
+                || borderVertical.includes(elem))) break;
                 if(!(i === shortedShipsArr.length || i === 0)) return false;
             }
             // no overlapping of ships

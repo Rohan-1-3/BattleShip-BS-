@@ -1,9 +1,8 @@
 export default class Ships{
-    constructor(name,length, count ,position, hits = 0){
+    constructor(name,length,position, hits = 0){
         this.name = name;
         this.length = length;
         this.position = position;
-        this.count = count;
         this.hits = hits;
         this.hasSunken = false;
     }
@@ -17,7 +16,6 @@ export default class Ships{
     isSunk(){// once all hit it sinks
         if(this.position.length === 0) {
             this.hasSunken = true;
-            this.count--;
         };
     }
 }
