@@ -12,10 +12,12 @@ export default function ships(){
     gameBoard();// box area for both players
 
     const getRandomLegalPosition = (j, person)=>{
+        // when randomised the ships will get placed either vertical or horizontol
         const randomNumber = Math.floor(Math.random() * 100);
         const newArray = [];
         const addingArray = [1,10,1,10,10,1,10,1];
         const addingDigit = addingArray[Math.floor(Math.random()*addingArray.length)];
+
         for(let i = 0;i < j;i++){
             newArray.push(randomNumber+(i * addingDigit));// a random number and make a serialised array of it
         }
@@ -67,21 +69,26 @@ export default function ships(){
             computer.board.shipsPlacement(computer.ships[i].position);
         }
     }
-    
+
     const playerOne = document.querySelector(".player-1");
     const playerTwo = document.querySelector(".player-2");
     playerTwo.classList.add("turn");
-    // creating ships randomly
+    // creating ships randomly for user
     const randomise = document.querySelector(".randomPlayer");
     randomise.addEventListener("click", ()=>{
         playerShips();
     })
+    // starting the game after placements
     startGame.addEventListener("click", ()=>{
+        if(player.board.hasShipArray.length !== 16) return false;// can;t start game without placement of all ships
         playerOne.style.pointerEvents = "none";
         computerShips();
+        // disbaling DOM buttons
         randomise.disabled = true;
         startGame.disabled = true;
-        playerTwo.classList.remove("turn")
+        // playerOne can attack
+        playerTwo.classList.remove("turn");
+        return 0;
     })
     
 }
