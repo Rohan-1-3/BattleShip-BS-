@@ -1,6 +1,53 @@
-main{
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    display: flex;
+    background-color: rgb(60, 72, 69);
+    justify-content: space-between;
+    padding: 2vw;
+    position: sticky;
+}
+
+.title button{
+    position: relative;
+}
+
+.title img{
+    height: 70px;
+}
+
+
+.game{
     display: flex;
     justify-content: space-around;
+    background-image: url(./images/battleship.gif);
+    background-size: cover;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+button{
+    width: 20vw;
+    height: 5vw;
+    border-radius: 100px;
+    background-color: rgb(13, 38, 54);
+    font-size: 2vw;
+    border-width: 0px;
+    cursor: pointer;
+    font-weight: bold;
+    color: red;
 }
 
 .player-1, .player-2{
@@ -13,8 +60,8 @@ main{
 
 .grid-item {
     border: 1px solid red;
-    padding: 25px;
-    background-color: white;
+    padding: 22px;
+    background-color: rgb(17, 24, 39);
 }
 
 .turn{
@@ -25,4 +72,41 @@ main{
 
 .green{
     background-color: green;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(13, 38, 54);
+    padding: 0.8vw;
+    color: white;
+}
+
+.footer a{
+    text-decoration: none;
+    color: red;
+    font-size: 2vw;
+}
+
+.footer span{
+    font-size: 2vw;
+}
+
+.footer img{
+    height: 3vw;
+    position: relative;
+    top: 0.8vw;
+    transition: all .5s;
+}
+
+.footer img:hover{
+    transform: rotate(3600deg);
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.show{
+    visibility: visible;
 }
