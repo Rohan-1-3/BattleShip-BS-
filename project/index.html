@@ -10,17 +10,23 @@
 <body>
     <div id="container">
         <header class="title">
-            <p>BattleShip</p>
-            <div class="buttons">
-                <button class="randomPlayer">Randomise</button>
-                <button class="game-start">Start Game</button>
-                <button class="rotate">Rotate</button>
+            <div class="logo"></div>
+            <img src="./images/title.png" alt="">
+            <div>
             </div>
         </header>
 
         <main class="game">
             <div class="player-1">
 
+            </div>
+            <div class="buttons">
+                <button class="reset" onclick="location.reload()">Reset</button>
+                <button class="manual">Manual</button>
+                <button class="randomPlayer">Randomise</button>
+                <button class="game-start">Start Game</button>
+                <button class="rotate hide">Rotate</button>
+                <button class="win-display hide"></button>
             </div>
             <div class="player-2">
 
@@ -29,17 +35,17 @@
         <footer class="footer">
             <div>
                 <span>Created By: rohan-1-3</span>
-                <a href="" target="_blank">
+                <a href="https://github.com/Rohan-1-3/BattleShip-BS-" target="_blank">
                     <img src="./images/github.png" alt="github">
                 </a>
             </div>
 
-            <div class="icons">
+            <!-- <div class="icons">
                 <span>Images By:</span>
                 <a href="" target="_blank">
                     Some site
                 </a>
-            </div>
+            </div> -->
         </footer>
     </div>
     <script src="main.js"></script>

@@ -6,9 +6,14 @@ export default function hitBoard(){
 
     const checkGameEnd = (person)=>{
         if(person.board.hasShipArray.length === 0){
+            const resetButton = document.querySelector(".reset");
+            resetButton.style.pointerEvents = "all";
+            const winDisplay = document.querySelector(".win-display");
+            winDisplay.textContent = `${person.name} lost`;
+            winDisplay.classList.add("show")
+            resetButton.classList.add("show");
             const main = document.querySelector(".game");
             main.style.pointerEvents = "none"; // after game ends DOM allowed
-            console.log(`${person.name} Lost`); // idisplays
             return true;
         };
         return false;

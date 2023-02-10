@@ -3,7 +3,7 @@
 import Ships from "../modules/ship";
 import { player, startGame } from "./shipPlacement";
 
-export default function manualPlacement(){
+function manualPlacement(){
     const gridItemPlayer = document.querySelectorAll(".player-1 .grid-item");
     const rotate = document.querySelector(".rotate");
     // for changeing the direction of the ships
@@ -70,3 +70,5 @@ export default function manualPlacement(){
         });
     });
 }
+
+export default manualPlacement;

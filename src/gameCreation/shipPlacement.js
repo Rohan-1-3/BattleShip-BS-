@@ -30,7 +30,7 @@ export default function ships(){
         player.board.hasShipArray = [];
         const gridItemPlayer = document.querySelectorAll(".player-1 .grid-item");
         gridItemPlayer.forEach((grid)=>{
-            grid.style.backgroundColor = "white";
+            grid.style.backgroundColor = "rgb(17, 24, 39)";
         })
         let j = 5;
         for(let i = 0;i < 5;i++){
@@ -75,12 +75,15 @@ export default function ships(){
     playerTwo.classList.add("turn");
     // creating ships randomly for user
     const randomise = document.querySelector(".randomPlayer");
+    const butttons = document.querySelector(".buttons");
     randomise.addEventListener("click", ()=>{
         playerShips();
+        playerOne.style.pointerEvents = "none";
     })
     // starting the game after placements
     startGame.addEventListener("click", ()=>{
         if(player.board.hasShipArray.length !== 16) return false;// can;t start game without placement of all ships
+        butttons.classList.add("hide");
         playerOne.style.pointerEvents = "none";
         computerShips();
         // disbaling DOM buttons
