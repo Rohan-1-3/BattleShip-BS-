@@ -110,3 +110,10 @@ button{
 .show{
     visibility: visible;
 }
+
+@media screen and (max-width: 1000px){
+    
+    .game{
+        flex-direction: column;
+    }
+}
