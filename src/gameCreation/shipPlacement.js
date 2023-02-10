@@ -67,18 +67,21 @@ export default function ships(){
             computer.board.shipsPlacement(computer.ships[i].position);
         }
     }
-
+    
+    const playerOne = document.querySelector(".player-1");
     const playerTwo = document.querySelector(".player-2");
-    playerTwo.style.pointerEvents = "none";
+    playerTwo.classList.add("turn");
     // creating ships randomly
     const randomise = document.querySelector(".randomPlayer");
     randomise.addEventListener("click", ()=>{
         playerShips();
     })
     startGame.addEventListener("click", ()=>{
+        playerOne.style.pointerEvents = "none";
         computerShips();
         randomise.disabled = true;
-        playerTwo.style.pointerEvents = "all";
+        startGame.disabled = true;
+        playerTwo.classList.remove("turn")
     })
     
 }
