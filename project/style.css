@@ -111,6 +111,21 @@ button{
     visibility: visible;
 }
 
+.invalid{
+    animation: blink-animation .5s steps(5, start) 5;
+  }
+  @keyframes blink-animation {
+    to {
+      box-shadow: -1px 1px red, 1px 1px red;
+
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+        box-shadow: -1px -1px red, 1px -1px red;
+    }
+  }
+
 @media screen and (max-width: 1000px){
     
     .game{

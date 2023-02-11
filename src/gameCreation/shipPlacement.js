@@ -1,3 +1,5 @@
+/* eslint-disable no-continue */
+/* eslint-disable no-param-reassign */
 
 import Player from "../modules/player"
 import Ships from "../modules/ship"
@@ -74,6 +76,7 @@ export default function ships(){
     playerTwo.classList.add("turn");
     // creating ships randomly for user
     const randomise = document.querySelector(".randomPlayer");
+    const manualButton = document.querySelector(".manual")
     const butttons = document.querySelector(".buttons");
     randomise.addEventListener("click", ()=>{
         playerShips();
@@ -81,7 +84,15 @@ export default function ships(){
     })
     // starting the game after placements
     startGame.addEventListener("click", ()=>{
-        if(player.board.hasShipArray.length !== 16) return false;// can;t start game without placement of all ships
+        if(player.board.hasShipArray.length !== 16){
+            randomise.classList.add("invalid");
+            manualButton.classList.add("invalid");    
+            setTimeout(() => {
+                randomise.classList.remove("invalid");
+                manualButton.classList.remove("invalid");
+            }, 2000);
+            return false;
+        };// can;t start game without placement of all ships
         butttons.classList.add("hide");
         playerOne.style.pointerEvents = "none";
         computerShips();

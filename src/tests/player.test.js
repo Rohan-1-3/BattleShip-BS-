@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Player from "../modules/player";
 import Ships from "../modules/ship";
 
