@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import Ships from "../modules/ship"
 
 describe("ship.js", ()=>{

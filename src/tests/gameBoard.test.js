@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+
 import GameBoard from "../modules/gameBoard";
 
 describe("gameBoard.js", ()=>{

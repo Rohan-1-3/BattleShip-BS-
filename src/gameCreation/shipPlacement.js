@@ -1,5 +1,4 @@
-/* eslint-disable no-continue */
-/* eslint-disable no-param-reassign */
+
 import Player from "../modules/player"
 import Ships from "../modules/ship"
 import gameBoard from "./gameBoard";

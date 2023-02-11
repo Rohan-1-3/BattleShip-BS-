@@ -1,5 +1,3 @@
-/* eslint-disable import/no-cycle */
-/* eslint-disable no-param-reassign */
 import { computer, player } from "./shipPlacement";
 
 export default function hitBoard(){

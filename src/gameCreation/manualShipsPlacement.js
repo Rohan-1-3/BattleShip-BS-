@@ -1,5 +1,4 @@
-/* eslint-disable consistent-return */
-/* eslint-disable no-param-reassign */
+
 import Ships from "../modules/ship";
 import { player, startGame } from "./shipPlacement";
 
