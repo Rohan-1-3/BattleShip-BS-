@@ -24,19 +24,43 @@ export default function hitBoard(){
     const shotsArrayComp = [];
     const playerOne = document.querySelector(".player-1");
     const playerTwo = document.querySelector(".player-2");
+    let hitShip = false;
+    let prevpos;
   
-    
+    const smartHittingShips = (pos, newPos)=>{
+        // loop for finding the which ship beens hit
+        for(let i = 0;i < 5;i++){
+            if(player.ships[i].position.includes(pos)){
+                if(player.ships[i].hits === player.ships[i].length-1) {
+                    // once all part of ship been destroyed computer start making random moves
+                    hitShip = false;
+                    return newPos;
+                }
+                const hittedShip = player.ships[i].position;// arrayPosition of hitted Ship
+                player.ships[i].hit(pos);                
+                return hittedShip[0]; // returns hitted Ships array element one by one
+            }
+        }
+    }
 
     const computerPlay = ()=>{// random computer plays
-        const randomNumber = Math.floor(Math.random()*player.board.boardPositionArray.length)
-        const pos = player.board.boardPositionArray[randomNumber];
+        const playersBoard = player.board.boardPositionArray;
+        const randomNumber = Math.floor(Math.random()*playersBoard.length);
+        let pos = playersBoard[randomNumber];
+        // smart AI;
+        if(hitShip){
+            pos = smartHittingShips(prevpos, pos); // getting hitted Ships part
+        }
         // removes the position from players board after shots
-        player.board.boardPositionArray.splice(randomNumber, 1);
+       playersBoard.splice(playersBoard.indexOf(pos), 1);
             if(!(shotsArrayComp.includes(pos))){// no hitting same position twice
+                prevpos = pos;
                 const item = document.getElementById(`${pos}`);
                 shotsArrayComp.push(pos);// pushing hit position to array
                 const shipArray = player.board.hasShipArray;
                 if(shipArray.includes(pos)){// if ship gets hit div color changes to red
+                    // once hit smart AI turns true for 
+                    hitShip = true;
                     item.style.backgroundColor = "red";
                     shipArray.splice(shipArray.indexOf(pos),1); // removes position from shipArray
                     if(checkGameEnd(player)) return 0;// if game ends no switching turns
@@ -47,6 +71,7 @@ export default function hitBoard(){
                 // changes turn to other player
                 playerOne.classList.add("turn");
                 playerTwo.classList.remove("turn");
+                console.log(player);
             }
             return 0;
     }
