@@ -131,4 +131,19 @@ button{
     .game{
         flex-direction: column;
     }
+
+    .buttons{
+        flex-direction: row;
+    }
+
+    .player-1, .player-2{
+        grid-template-rows: repeat(var(--grid-rows), 50px);
+        grid-template-columns: repeat(var(--grid-cols), 50px);
+        border: 0px;
+        margin: 1vw;
+    }
+
+    #container{
+        width: max-content;
+    }
 }
